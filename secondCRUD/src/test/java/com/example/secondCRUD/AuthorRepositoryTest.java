@@ -19,8 +19,7 @@ public class AuthorRepositoryTest {
 
     @Test
     public  void testCreateAuthor(){
-        Author save = repository.save(new Author("Eleonora", "Nowacka"));
-
+        Author save = repository.save(new Author("Eleonora Nowacka"));
         assertThat(save.getId()).isGreaterThan(0);
     }
 }

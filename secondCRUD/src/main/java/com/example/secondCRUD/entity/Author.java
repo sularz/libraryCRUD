@@ -9,19 +9,15 @@ public class Author {
     private Integer id;
 
     @Column(length = 45, nullable = false)
-    private String name;
-
-    @Column(length = 45, nullable = false)
-    private String surname;
+    private String fullName;
 
     public Author() {
     }
     public Author(Integer id){
         this.id = id;
     }
-    public Author(String name, String surname){
-        this.name = name;
-        this.surname = surname;
+    public Author(String fullName){
+        this.fullName = fullName;
     }
 
     public Integer getId() {
@@ -32,19 +28,13 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getSurname() {
-        return surname;
-    }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
 }

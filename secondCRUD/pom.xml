@@ -11,7 +11,7 @@
 	<groupId>com.example</groupId>
 	<artifactId>secondCRUD</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>secondCRUD</name>
+	<fullName>secondCRUD</fullName>
 	<description>one to many CRUD</description>
 	<properties>
 		<java.version>1.8</java.version>
