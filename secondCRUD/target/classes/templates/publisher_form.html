@@ -2,37 +2,31 @@
 <html xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create Book</title>
+    <title>Create Publisher</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
 <div class="container text-center" >
-    <div th:if="${book.id == null}">
-        <h1>Create new Book!</h1>
+    <div th:if="${publisher.id == null}">
+        <h1>Create new Publisher!</h1>
     </div>
-    <div th:unless="${book.id == null}">
-        <h1>Edit book</h1>
+    <div th:unless="${publisher.id == null}">
+        <h1>Edit publisher</h1>
     </div>
-    <form th:action="@{/books/save}" th:object="${book}" method="post"
-          style="max-width: 600px; margin: 0 auto;">
-        <input type="hidden" th:field="*{id}" th:value="${book.id}" />
+    <form th:action="@{/publishers/save}" th:object="${publisher}" method="post"
+    style="max-width: 600px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" th:value="${publisher.id}" />
         <div class="m-3">
             <div  class="form-group row">
-                <label class="col-form-label col-sm-4 p-2">Book Title:</label>
+                <label class="col-form-label col-sm-4 p-2">Publisher Name:</label>
                 <div class="col-sm-8">
-                    <input type="text" th:field="*{title}" class="form-control" required>
+                    <input type="text" th:field="*{fullName}" class="form-control" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-form-label col-sm-4 p-2">Price:</label>
+                <label class="col-form-label col-sm-4 p-2">Choose one or more authors::</label>
                 <div class="col-sm-8">
-                    <input type="number" step="0.1" th:field="*{price}" class="form-control" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-form-label col-sm-4 p-2">Author:</label>
-                <div class="col-sm-8">
-                    <select th:field="*{author}" class="form-control" required>
+                    <select th:field="*{authors}" class="form-control" multiple="multiple" required>
                         <th:block th:each="author : ${listAuthors}">
                             <option th:text="${author.fullName}" th:value="${author.id}"></option>
                         </th:block>

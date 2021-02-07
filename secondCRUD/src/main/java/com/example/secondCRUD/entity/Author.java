@@ -11,6 +11,11 @@ public class Author {
     @Column(length = 45, nullable = false)
     private String fullName;
 
+//    many authors to one publisher
+    @ManyToOne
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
     public Author() {
     }
     public Author(Integer id){
@@ -36,5 +41,11 @@ public class Author {
         this.fullName = fullName;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
 
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 }

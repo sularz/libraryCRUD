@@ -15,16 +15,21 @@
     <tr>
         <th>ID</th>
         <th>Full name</th>
+<!--        <th></th>-->
     </tr>
     </thead>
-    <tbody th:if="${not #lists.isEmpty(identificationData)}">
+    <tbody th:if="${not #lists.isEmpty(listAuthors)}">
     <tr th:each="author : ${listAuthors}">
-        <td><span th:text="${author.full_name}"> Full name </span></td>
+        <td><span th:text="${author.id}"> ID </span></td>
+        <td><span th:text="${author.fullName}"> Full name </span></td>
+<!--        <td>-->
+<!--            <a href="@{'/authors/edit/' + ${author.id}}">Edit</a>-->
+<!--        </td>-->
     </tr>
     </tbody>
-    <tbody th:if="${#lists.isEmpty(identificationData)}">
+    <tbody th:if="${#lists.isEmpty(listAuthors)}">
     <tr>
-        <td colspan="3">No Data found</td>
+        <td colspan="3">listAuthors is empty</td>
     </tr>
     </tbody>
 </table>

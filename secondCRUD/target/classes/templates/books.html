@@ -17,6 +17,7 @@
                     <th>Price</th>
                     <th>Title</th>
                     <th>Author</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody th:if="${not #lists.isEmpty(listBooks)}">
@@ -24,12 +25,17 @@
                         <td><span th:text="${book.id}"> ID </span></td>
                         <td><span th:text="${book.price}"> Price </span></td>
                         <td><span th:text="${book.title}"> Title </span></td>
-                        <td><span th:text="${book.author_id}"> Author </span></td>
+                        <td><span th:text="${book.author.fullName}"> Author </span></td>
+                        <td>
+                            <a th:href="@{'/books/edit/' + ${book.id}}">Edit</a>
+                            &nbsp;
+                            <a th:href="@{'/books/delete/' + ${book.id}}">Delete</a>
+                        </td>
                     </tr>
             </tbody>
             <tbody th:if="${#lists.isEmpty(listBooks)}">
             <tr>
-                <td colspan="3">No Data found</td>
+                <td colspan="3">listBooks is empty</td>
             </tr>
             </tbody>
         </table>

@@ -7,11 +7,15 @@
 </head>
 <body>
 <div class="container text-center" >
-    <div>
+    <div th:if="${author.id == null}">
         <h1>Create new Author!</h1>
+    </div>
+    <div th:unless="${author.id == null}">
+        <h1>Edit author</h1>
     </div>
     <form th:action="@{/authors/save}" th:object="${author}" method="post"
     style="max-width: 600px; margin: 0 auto;">
+        <input type="hidden" th:field="*{id}" th:value="${author.id}" />
         <div class="m-3">
             <div  class="form-group row">
                 <label class="col-form-label col-sm-4 p-2">Author full name:</label>
